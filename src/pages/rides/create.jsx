@@ -15,9 +15,9 @@ export default function Create() {
 	const { isConnected } = useAccount();
 
 	const creatRide = async () => {
-		const provider = new ethers.providers.Web3Provider((window as any).ethereum, 'any');
+		const provider = new ethers.providers.Web3Provider(window.ethereum, 'any');
 		const signer = await provider.getSigner();
-		const contract = new ethers.Contract('0x618965ac64eb2CFF28cd821A66B5A111f3ea3234', abi, signer);
+		const contract = new ethers.Contract('0xd3E6f827BC5830C7Ad5ac8eB912308eEf850C8C7', abi, signer);
 
 		const createARide = await contract.createride(origin, destination, departuretime, fare, seats);
         await createARide.wait()

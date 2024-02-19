@@ -9,13 +9,13 @@ export default function Search() {
 	const [origin, setOrigin] = useState('');
 	const [destination, setDestination] = useState('');
 	const [loading, setLoading] = useState(false);
-	const [rides, setRides] = useState<any[]>([]);
+	const [rides, setRides] = useState([]);
 
 	const searchRides = async () => {
 		setLoading(true);
-		const provider = new ethers.providers.Web3Provider((window as any).ethereum, 'any');
+		const provider = new ethers.providers.Web3Provider(window.ethereum, 'any');
 
-		const contract = new ethers.Contract('0x618965ac64eb2CFF28cd821A66B5A111f3ea3234', abi, provider);
+		const contract = new ethers.Contract('0xd3E6f827BC5830C7Ad5ac8eB912308eEf850C8C7', abi, provider);
 
 		const rideCount = await contract.ridecount();
 		console.log(Number(rideCount));
@@ -41,10 +41,10 @@ export default function Search() {
 		setLoading(false);
 	};
 
-	const bookRide = async (rideId: Number) => {
-		const provider = new ethers.providers.Web3Provider((window as any).ethereum, 'any');
+	const bookRide = async (rideId) => {
+		const provider = new ethers.providers.Web3Provider(window.ethereum, 'any');
 		const signer = await provider.getSigner();
-		const contract = new ethers.Contract('0x618965ac64eb2CFF28cd821A66B5A111f3ea3234', abi, signer);
+		const contract = new ethers.Contract('0xd3E6f827BC5830C7Ad5ac8eB912308eEf850C8C7', abi, signer);
 
 		const _bookRide = await contract.bookRide(rideId);
         await _bookRide.wait()

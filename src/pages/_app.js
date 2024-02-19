@@ -6,11 +6,11 @@ import { getDefaultWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit';
 import '@rainbow-me/rainbowkit/styles.css';
 import { Toaster } from 'react-hot-toast';
 import { configureChains, createConfig, WagmiConfig } from 'wagmi';
-import { polygonMumbai } from 'wagmi/chains';
+import { polygonMumbai, avalancheFuji } from 'wagmi/chains';
 import { publicProvider } from 'wagmi/providers/public';
 
 
-const { chains, publicClient } = configureChains([polygonMumbai], [publicProvider()]);
+const { chains, publicClient } = configureChains([polygonMumbai, avalancheFuji], [publicProvider()]);
 const { connectors } = getDefaultWallets({
 	appName: 'deDrive',
 	projectId: '9d76ee4cef7c5b8d16e72986446c7841',
