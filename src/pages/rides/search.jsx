@@ -16,7 +16,7 @@ export default function Search() {
     const provider = new ethers.providers.Web3Provider(window.ethereum, "any");
 
     const contract = new ethers.Contract(
-      "0xe5b0c9C57f4438462492f267169a8D6412Cf21C0",
+      "0x7bff0B4fA24968478263493eFB42712fA650A1ab",
       abi,
       provider
     );
@@ -53,7 +53,7 @@ export default function Search() {
     const provider = new ethers.providers.Web3Provider(window.ethereum, "any");
     const signer = await provider.getSigner();
     const contract = new ethers.Contract(
-      "0xe5b0c9C57f4438462492f267169a8D6412Cf21C0",
+      "0x7bff0B4fA24968478263493eFB42712fA650A1ab",
       abi,
       signer
     );

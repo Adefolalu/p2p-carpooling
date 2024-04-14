@@ -6,11 +6,11 @@ import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import "@rainbow-me/rainbowkit/styles.css";
 import { Toaster } from "react-hot-toast";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
-import { polygonMumbai, avalancheFuji } from "wagmi/chains";
+import { polygon, avalancheFuji } from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
 
 const { chains, publicClient } = configureChains(
-  [polygonMumbai, avalancheFuji],
+  [polygon, avalancheFuji],
   [publicProvider()]
 );
 const { connectors } = getDefaultWallets({
